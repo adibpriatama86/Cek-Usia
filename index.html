@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Usia</title>
+    <style>
+        /* clearing */
+        html, body, :root {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            /* flex direction ke kanan (row) | ke bawah (column) */
+            flex-direction: column; 
+            gap: 10px;
+            margin: 0 auto;
+            padding: 16px;
+            width: 500px;
+            border: 2px solid pink;
+            background-color: pink;
+            border-radius: 24px;
+            margin-top: 24px;
+        }
+
+        #birthday {
+            padding: 16px;
+            color: #000;
+            font-size: 18px;
+            border-radius: 8px;
+            /* width: 100%; */
+        }
+
+        #check-button {
+            padding: 16px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        #check-button:hover {
+            background-color: #181717;
+            transition: .2s ease-in-out;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        .result {
+            font-size: 16px;
+            color: #333;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CEK USIA ANDA</h2>
+        <label for="birthday">Masukkan tahun kelahiran anda:</label>
+        <input type="number" placeholder="Contoh: 1945" id="birthday">
+        <button id="check-button" onclick="checkResult()">Cek Usia</button>
+        <p class="result" id="resultView">
+            <!-- hasil akan otomatis masuk kesini -->
+        </p>
+    </div>
+
+    <script>
+        function checkResult() {
+            const birthdayInput = document.getElementById("birthday");
+            const birthday = birthdayInput.value;
+
+            const now = new Date().getFullYear(); //bernilai tahun ini secara otomatis
+            const age = now - birthday;  
+
+            const result = document.getElementById("resultView");
+            resultView.innerHTML = `Usia anda saat ini adalah ${age}`
+        }
+    </script>
+
+</body>
+</html>
